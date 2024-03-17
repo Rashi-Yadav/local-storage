@@ -13,5 +13,13 @@ function saveToLocalStorage(event){
     phone: event.target.phonenumber.value,
   };
 
-  localStorage.setItem("User Details", JSON.stringify(userDetails));
+  localStorage.setItem(userDetails.email, JSON.stringify(userDetails)); 
+
+  function showUserDetails(userDetails) {
+    const parent = document.getElementById('userList');
+    const li = document.createElement('li');
+    li.innerHTML = `${userDetails.username} - ${userDetails.email} - ${userDetails.phone}`;
+    parent.appendChild(li);
+  }
+  showUserDetails(userDetails);
 }
