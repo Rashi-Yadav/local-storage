@@ -30,13 +30,26 @@ function saveToLocalStorage(event){
       const delButton = document.createElement('button');
       delButton.type = 'button';
       delButton.textContent = 'Delete';
-
-      // Setting event handler ,to delete user details from list as well as local storage
+      
       delButton.onclick = () => {
         parent.removeChild(li);
         localStorage.removeItem(user.email);
       };
       li.appendChild(delButton);
+
+      // adding edit button
+      const editButton = document.createElement('button');
+      editButton.type = 'button';
+      editButton.textContent = 'Edit';
+
+      editButton.onclick = () => {
+  parent.removeChild(li);
+  localStorage.removeItem(user.email);
+  document.getElementById('username').value = user.username;
+  document.getElementById('email').value = user.email;
+  document.getElementById('phone').value = user.phone;
+};
+li.appendChild(editButton)
     }
   }
 
